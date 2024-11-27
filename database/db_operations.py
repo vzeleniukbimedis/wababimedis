@@ -241,7 +241,9 @@ def save_whatsapp_message(contact_id, template_name, message_details):
         return False
 
 
-def save_email_message(contact_id, template_name, subject, body, status=1):
+def save_email_message(
+    contact_id, template_name, subject, body, status=1, deal_id=None
+):
     """Зберігає інформацію про відправлений email"""
     try:
         conn = sqlite3.connect("deals_data.db")
@@ -251,14 +253,16 @@ def save_email_message(contact_id, template_name, subject, body, status=1):
             """
             INSERT INTO messages (
                 contact_id,
+                deal_id,
                 message_type,
                 template_name,
                 message_text,
                 status
-            ) VALUES (?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?)
         """,
             (
                 contact_id,
+                deal_id,
                 "email",
                 template_name,
                 f"Subject: {subject}\n\nBody: {body}",
@@ -318,8 +322,8 @@ def get_contact_messages(contact_id):
         return []
 
 
-def save_seller_response(contact_id, seller_id, response_type):
-    """Зберігає відповідь про вибір продавця"""
+def save_seller_choice(contact_id, seller_data):
+    """Зберігає вибір продавця"""
     try:
         conn = sqlite3.connect("deals_data.db")
         cursor = conn.cursor()
@@ -335,133 +339,31 @@ def save_seller_response(contact_id, seller_id, response_type):
         """,
             (
                 contact_id,
-                "seller_selection",
-                response_type,
+                "seller_selected",
+                f"{seller_data['name']} {seller_data['last_name']}",
                 json.dumps(
-                    {"seller_id": seller_id, "timestamp": datetime.now().isoformat()}
+                    {
+                        "seller_name": seller_data["name"],
+                        "seller_last_name": seller_data["last_name"],
+                        "timestamp": datetime.now().isoformat(),
+                    }
                 ),
             ),
         )
 
         conn.commit()
         conn.close()
+
         logger.info(
-            f"Saved seller response for contact {contact_id}, seller {seller_id}"
+            f"Saved seller choice for contact {contact_id}: {seller_data['name']} {seller_data['last_name']}"
         )
         return True
+
     except Exception as e:
-        logger.error(f"Error saving seller response: {e}")
+        logger.error(f"Error saving seller choice: {e}")
+        if "conn" in locals():
+            conn.close()
         return False
-
-
-def get_active_sellers(contact_id):
-    """Отримує список активних продавців для контакта"""
-    try:
-        conn = sqlite3.connect("deals_data.db")
-        cursor = conn.cursor()
-
-        cursor.execute(
-            """
-            SELECT DISTINCT 
-                ds.id,
-                ds.name,
-                ds.last_name,
-                ds.email,
-                ds.phone
-            FROM DealSellers ds
-            JOIN Deals d ON ds.deal_id = d.id
-            WHERE d.contact_id = ?
-            AND d.status = 1
-            ORDER BY ds.name, ds.last_name
-        """,
-            (contact_id,),
-        )
-
-        sellers = cursor.fetchall()
-        conn.close()
-
-        return [
-            {
-                "id": seller[0],
-                "name": seller[1],
-                "last_name": seller[2],
-                "email": seller[3],
-                "phone": seller[4],
-            }
-            for seller in sellers
-        ]
-    except Exception as e:
-        logger.error(f"Error getting active sellers: {e}")
-        return []
-
-
-def update_message_status(message_id, new_status, status_description=None):
-    """Оновлює статус повідомлення"""
-    try:
-        conn = sqlite3.connect("deals_data.db")
-        cursor = conn.cursor()
-
-        if status_description:
-            cursor.execute(
-                """
-                UPDATE messages 
-                SET status = ?, status_description = ?
-                WHERE whatsapp_message_id = ?
-            """,
-                (new_status, status_description, message_id),
-            )
-        else:
-            cursor.execute(
-                """
-                UPDATE messages 
-                SET status = ?
-                WHERE whatsapp_message_id = ?
-            """,
-                (new_status, message_id),
-            )
-
-        conn.commit()
-        conn.close()
-        logger.info(f"Updated status for message {message_id} to {new_status}")
-        return True
-    except Exception as e:
-        logger.error(f"Error updating message status: {e}")
-        return False
-
-
-def get_message_history(contact_id, template_name=None):
-    """Отримує історію повідомлень для контакта"""
-    try:
-        conn = sqlite3.connect("deals_data.db")
-        cursor = conn.cursor()
-
-        if template_name:
-            cursor.execute(
-                """
-                SELECT * FROM messages
-                WHERE contact_id = ?
-                AND template_name = ?
-                ORDER BY created_at DESC
-            """,
-                (contact_id, template_name),
-            )
-        else:
-            cursor.execute(
-                """
-                SELECT * FROM messages
-                WHERE contact_id = ?
-                ORDER BY created_at DESC
-            """,
-                (contact_id,),
-            )
-
-        messages = cursor.fetchall()
-        conn.close()
-
-        return messages
-    except Exception as e:
-        logger.error(f"Error getting message history: {e}")
-        return []
 
 
 def get_seller_responses_stats():

@@ -276,3 +276,15 @@ ImportError: cannot import name 'get_contact_by_email' from 'database.db_operati
 [2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:791) was sent SIGTERM!
 [2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:786) was sent SIGTERM!
 [2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:788) exited with code 3
+[2024-11-27 14:07:28 +0000] [673] [INFO] Starting gunicorn 23.0.0
+[2024-11-27 14:07:28 +0000] [673] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-27 14:07:28 +0000] [673] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-27 14:07:29 +0000] [673] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-27 14:07:29 +0000] [673] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-27 14:07:30 +0000] [673] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-27 14:07:30 +0000] [673] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-27 14:07:31 +0000] [673] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-27 14:07:31 +0000] [673] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-27 14:07:32 +0000] [673] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-27 14:07:32 +0000] [673] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-27 14:07:33 +0000] [673] [ERROR] Can't connect to ('127.0.0.1', 5000)
