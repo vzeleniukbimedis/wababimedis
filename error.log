@@ -1,0 +1,278 @@
+[2024-11-24 18:58:57 +0000] [4761] [INFO] Starting gunicorn 23.0.0
+[2024-11-24 18:58:57 +0000] [4761] [INFO] Listening at: http://127.0.0.1:5000 (4761)
+[2024-11-24 18:58:57 +0000] [4761] [INFO] Using worker: sync
+[2024-11-24 18:58:57 +0000] [4765] [INFO] Booting worker with pid: 4765
+[2024-11-24 18:58:58 +0000] [4766] [INFO] Booting worker with pid: 4766
+[2024-11-24 18:58:58 +0000] [4770] [INFO] Booting worker with pid: 4770
+[2024-11-24 18:58:58 +0000] [4771] [INFO] Booting worker with pid: 4771
+[2024-11-24 18:58:58 +0000] [4765] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 4, in <module>
+    from sendpulse.api import sendpulse_blueprint
+  File "/var/www/wa.bimedis.net/sendpulse/api.py", line 6, in <module>
+    from email.email_service import send_email
+ModuleNotFoundError: No module named 'email.email_service'
+[2024-11-24 18:58:58 +0000] [4765] [INFO] Worker exiting (pid: 4765)
+[2024-11-24 18:58:58 +0000] [4761] [ERROR] Worker (pid:4765) exited with code 3
+[2024-11-24 18:58:58 +0000] [4766] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 4, in <module>
+    from sendpulse.api import sendpulse_blueprint
+  File "/var/www/wa.bimedis.net/sendpulse/api.py", line 6, in <module>
+    from email.email_service import send_email
+ModuleNotFoundError: No module named 'email.email_service'
+[2024-11-24 18:58:58 +0000] [4766] [INFO] Worker exiting (pid: 4766)
+[2024-11-24 18:58:58 +0000] [4770] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 4, in <module>
+    from sendpulse.api import sendpulse_blueprint
+  File "/var/www/wa.bimedis.net/sendpulse/api.py", line 6, in <module>
+    from email.email_service import send_email
+ModuleNotFoundError: No module named 'email.email_service'
+[2024-11-24 18:58:58 +0000] [4770] [INFO] Worker exiting (pid: 4770)
+[2024-11-24 18:58:58 +0000] [4761] [ERROR] Worker (pid:4770) exited with code 3
+[2024-11-24 18:58:58 +0000] [4771] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 4, in <module>
+    from sendpulse.api import sendpulse_blueprint
+  File "/var/www/wa.bimedis.net/sendpulse/api.py", line 6, in <module>
+    from email.email_service import send_email
+ModuleNotFoundError: No module named 'email.email_service'
+[2024-11-24 18:58:58 +0000] [4771] [INFO] Worker exiting (pid: 4771)
+[2024-11-25 14:15:10 +0000] [673] [INFO] Starting gunicorn 23.0.0
+[2024-11-25 14:15:10 +0000] [673] [INFO] Listening at: http://127.0.0.1:5000 (673)
+[2024-11-25 14:15:10 +0000] [673] [INFO] Using worker: sync
+[2024-11-25 14:15:10 +0000] [769] [INFO] Booting worker with pid: 769
+[2024-11-25 14:15:10 +0000] [771] [INFO] Booting worker with pid: 771
+[2024-11-25 14:15:10 +0000] [772] [INFO] Booting worker with pid: 772
+[2024-11-25 14:15:10 +0000] [773] [INFO] Booting worker with pid: 773
+[2024-11-26 11:33:07 +0000] [673] [INFO] Handling signal: term
+[2024-11-26 11:33:07 +0000] [769] [INFO] Worker exiting (pid: 769)
+[2024-11-26 11:33:07 +0000] [771] [INFO] Worker exiting (pid: 771)
+[2024-11-26 11:33:07 +0000] [772] [INFO] Worker exiting (pid: 772)
+[2024-11-26 11:33:07 +0000] [773] [INFO] Worker exiting (pid: 773)
+[2024-11-26 11:33:07 +0000] [673] [ERROR] Worker (pid:772) was sent SIGTERM!
+[2024-11-26 11:33:07 +0000] [673] [ERROR] Worker (pid:771) was sent SIGTERM!
+[2024-11-26 11:33:07 +0000] [673] [ERROR] Worker (pid:769) was sent SIGTERM!
+[2024-11-26 11:33:07 +0000] [673] [INFO] Shutting down: Master
+[2024-11-26 11:33:24 +0000] [672] [INFO] Starting gunicorn 23.0.0
+[2024-11-26 11:33:24 +0000] [672] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2024-11-26 11:33:24 +0000] [672] [ERROR] connection to ('127.0.0.1', 5000) failed: [Errno 98] Address already in use
+[2024-11-26 11:33:25 +0000] [672] [INFO] Listening at: http://127.0.0.1:5000 (672)
+[2024-11-26 11:33:25 +0000] [672] [INFO] Using worker: sync
+[2024-11-26 11:33:25 +0000] [786] [INFO] Booting worker with pid: 786
+[2024-11-26 11:33:25 +0000] [787] [INFO] Booting worker with pid: 787
+[2024-11-26 11:33:25 +0000] [788] [INFO] Booting worker with pid: 788
+[2024-11-26 11:33:25 +0000] [791] [INFO] Booting worker with pid: 791
+[2024-11-26 11:33:25 +0000] [787] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 3, in <module>
+    from tracking.click_tracker import track_blueprint
+  File "/var/www/wa.bimedis.net/tracking/click_tracker.py", line 2, in <module>
+    from database.db_operations import save_click_tracking, get_contact_by_email
+ImportError: cannot import name 'get_contact_by_email' from 'database.db_operations' (/var/www/wa.bimedis.net/database/db_operations.py)
+[2024-11-26 11:33:25 +0000] [787] [INFO] Worker exiting (pid: 787)
+[2024-11-26 11:33:25 +0000] [786] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 3, in <module>
+    from tracking.click_tracker import track_blueprint
+  File "/var/www/wa.bimedis.net/tracking/click_tracker.py", line 2, in <module>
+    from database.db_operations import save_click_tracking, get_contact_by_email
+ImportError: cannot import name 'get_contact_by_email' from 'database.db_operations' (/var/www/wa.bimedis.net/database/db_operations.py)
+[2024-11-26 11:33:25 +0000] [786] [INFO] Worker exiting (pid: 786)
+[2024-11-26 11:33:25 +0000] [791] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 3, in <module>
+    from tracking.click_tracker import track_blueprint
+  File "/var/www/wa.bimedis.net/tracking/click_tracker.py", line 2, in <module>
+    from database.db_operations import save_click_tracking, get_contact_by_email
+ImportError: cannot import name 'get_contact_by_email' from 'database.db_operations' (/var/www/wa.bimedis.net/database/db_operations.py)
+[2024-11-26 11:33:25 +0000] [791] [INFO] Worker exiting (pid: 791)
+[2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:787) exited with code 3
+[2024-11-26 11:33:25 +0000] [788] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/arbiter.py", line 608, in spawn_worker
+    worker.init_process()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 135, in init_process
+    self.load_wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/workers/base.py", line 147, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/base.py", line 66, in wsgi
+    self.callable = self.load()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+    return self.load_wsgiapp()
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/wa.bimedis.net/venv/lib/python3.10/site-packages/gunicorn/util.py", line 370, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/wa.bimedis.net/app.py", line 3, in <module>
+    from tracking.click_tracker import track_blueprint
+  File "/var/www/wa.bimedis.net/tracking/click_tracker.py", line 2, in <module>
+    from database.db_operations import save_click_tracking, get_contact_by_email
+ImportError: cannot import name 'get_contact_by_email' from 'database.db_operations' (/var/www/wa.bimedis.net/database/db_operations.py)
+[2024-11-26 11:33:25 +0000] [788] [INFO] Worker exiting (pid: 788)
+[2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:791) was sent SIGTERM!
+[2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:786) was sent SIGTERM!
+[2024-11-26 11:33:25 +0000] [672] [ERROR] Worker (pid:788) exited with code 3
